@@ -1,0 +1,34 @@
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 20vh;
+}
+
+.duration-player {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  input {
+    width: 100%;
+    padding: 1rem 0rem;
+  }
+  p {
+    padding: 1rem;
+  }
+}
+
+.control-player {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+  font-size: 2rem;
+  min-height: 8vh;
+  svg:hover {
+    cursor: pointer;
+    font-size: 2.1rem;
+  }
+}

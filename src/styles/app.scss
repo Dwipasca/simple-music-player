@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(179, 38, 38);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.app {
+  h1 {
+    text-align: center;
+    margin: 1rem 0rem;
+  }
+  font-family: "Montserrat", sans-serif;
+}
+
+@import "./musicIsRunning";
+@import "./player";
+@import "./listMusic";
+@import "./music";

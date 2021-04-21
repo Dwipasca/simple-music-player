@@ -4,14 +4,15 @@ import MusicIsRunning from "./components/MusicIsRunning";
 import Player from "./components/Player";
 
 // import styles
+import "./styles/app.scss";
 
 // impport icon fontAwesome
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <h1>Simple Player Music</h1>
-      {/* <ListMusic /> */}
+      <ListMusic />
       <MusicIsRunning />
       <Player />
     </div>

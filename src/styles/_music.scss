@@ -1,0 +1,37 @@
+.music {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem 2rem 1rem 2rem;
+  img {
+    width: 30%;
+  }
+}
+
+.desc-music {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 8vh;
+  h4:first-child {
+    font-size: 1rem;
+  }
+  h4 {
+    padding-left: 1rem;
+    font-size: 0.7rem;
+    color: rgb(46, 45, 45);
+  }
+}
+
+.selected:hover {
+  background-color: rgb(179, 38, 38);
+  h4:first-child {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+  }
+  h4 {
+    color: white;
+    font-size: 0.8rem;
+  }
+}

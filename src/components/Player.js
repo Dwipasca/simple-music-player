@@ -1,15 +1,24 @@
+// import fontawesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faAngleLeft,
+  faAngleRight,
+  faPause,
+} from "@fortawesome/free-solid-svg-icons";
+
 const Player = () => {
   return (
     <div className="player">
       <div className="duration-player">
-        <p>Start Time</p>
+        <p>0.0</p>
         <input type="range" />
-        <p>Total duration</p>
+        <p>3.27</p>
       </div>
       <div className="control-player">
-        <button>Back</button>
-        <button>Play</button>
-        <button>Next</button>
+        <FontAwesomeIcon className="back" icon={faAngleLeft} />
+        <FontAwesomeIcon className="play" icon={faPlay} />
+        <FontAwesomeIcon className="forward" icon={faAngleRight} />
       </div>
     </div>
   );

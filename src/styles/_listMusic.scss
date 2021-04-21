@@ -1,0 +1,15 @@
+.list-music {
+  // make position list music di ujung kiri dan atur top dan kirinya 0
+  position: fixed;
+  top: 0;
+  left: 0;
+  //   -------------------
+  width: 20rem;
+  height: 100%;
+  overflow: scroll;
+  box-shadow: 2px 2px 50px rgb(221, 221, 221);
+
+  h3 {
+    padding: 2rem;
+  }
+}

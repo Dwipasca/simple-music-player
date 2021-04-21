@@ -1,9 +1,19 @@
+// import components
 import Music from "./Music";
-import MusicIsRunning from "./MusicIsRunning";
+
 const ListMusic = () => {
   return (
-    <div>
-      <h1>ListMusic</h1>
+    <div className="list-music">
+      <h3>List Music</h3>
+      <Music />
+      <Music />
+      <Music />
+      <Music />
+      <Music />
+      <Music />
+      <Music />
+      <Music />
+      <Music />
       <Music />
     </div>
   );

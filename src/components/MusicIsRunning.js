@@ -1,6 +1,6 @@
 const MusicIsRunning = () => {
   return (
-    <div>
+    <div className="music-is-running">
       <img
         src="https://i1.sndcdn.com/artworks-hxecF19t6cUfJPQv-YQ6Naw-t500x500.jpg"
         alt="example"
