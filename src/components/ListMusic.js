@@ -1,20 +1,13 @@
 // import components
 import Music from "./Music";
 
-const ListMusic = () => {
+const ListMusic = ({ musics, setMusics }) => {
   return (
     <div className="list-music">
       <h3>List Music</h3>
-      <Music />
-      <Music />
-      <Music />
-      <Music />
-      <Music />
-      <Music />
-      <Music />
-      <Music />
-      <Music />
-      <Music />
+      {musics.map((msc) => (
+        <Music msc={msc} />
+      ))}
     </div>
   );
 };

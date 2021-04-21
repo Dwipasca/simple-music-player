@@ -1,13 +1,10 @@
-const Music = () => {
+const Music = ({ msc }) => {
   return (
     <div className="music selected">
-      <img
-        src="https://i1.sndcdn.com/artworks-hxecF19t6cUfJPQv-YQ6Naw-t500x500.jpg"
-        alt="example"
-      />
+      <img src={msc.cover} alt="example" />
       <div className="desc-music">
-        <h4>Water Color</h4>
-        <h4>Wheein Mamamoo</h4>
+        <h4>{msc.name}</h4>
+        <h4>{msc.artist}</h4>
       </div>
     </div>
   );

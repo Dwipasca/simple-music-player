@@ -1,12 +1,9 @@
-const MusicIsRunning = () => {
+const MusicIsRunning = ({ currentMusic }) => {
   return (
     <div className="music-is-running">
-      <img
-        src="https://i1.sndcdn.com/artworks-hxecF19t6cUfJPQv-YQ6Naw-t500x500.jpg"
-        alt="example"
-      />
-      <h2>Title Music</h2>
-      <h3>Artist</h3>
+      <img src={currentMusic.cover} alt={currentMusic.name} />
+      <h2>{currentMusic.name}</h2>
+      <h3>{currentMusic.artist}</h3>
     </div>
   );
 };
