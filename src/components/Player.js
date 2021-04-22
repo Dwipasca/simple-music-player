@@ -10,7 +10,7 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ musics, currentMusic, isPlaying, setIsPlaying }) => {
+const Player = ({ currentMusic, isPlaying, setIsPlaying }) => {
   // useRef pada react sama halnya dengan document.querySelector pada javascript biasa
   // digunakan untuk menseleksi component
   const audioRef = useRef(null);
@@ -47,11 +47,22 @@ const Player = ({ musics, currentMusic, isPlaying, setIsPlaying }) => {
     );
   }
 
+  const handlerDragInputAudio = (e) => {
+    audioRef.current.currentTime = e.target.value;
+    setMusicInfo({ ...musicInfo, currentTime: e.target.value });
+  };
+
   return (
     <div className="player">
       <div className="duration-player">
         <p>{getTime(musicInfo.currentTime)}</p>
-        <input type="range" />
+        <input
+          value={musicInfo.currentTime}
+          type="range"
+          max={musicInfo.duration}
+          min={0}
+          onChange={handlerDragInputAudio}
+        />
         <p>{getTime(musicInfo.duration)}</p>
       </div>
       <div className="control-player">
