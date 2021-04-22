@@ -16,13 +16,19 @@ function App() {
   // useState
   const [musics, setMusics] = useState(DataListMusic());
   const [currentMusic, setCurrentMusic] = useState(musics[0]);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <div className="app">
       <h1>Simple Player Music</h1>
       <ListMusic musics={musics} setMusics={setMusics} />
       <MusicIsRunning currentMusic={currentMusic} />
-      <Player />
+      <Player
+        musics={musics}
+        currentMusic={currentMusic}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+      />
     </div>
   );
 }
