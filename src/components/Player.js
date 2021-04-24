@@ -1,6 +1,3 @@
-// import package
-import { useState, useRef } from "react";
-
 // import icon fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,34 +7,24 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ currentMusic, isPlaying, setIsPlaying }) => {
-  // useRef pada react sama halnya dengan document.querySelector pada javascript biasa
-  // digunakan untuk menseleksi component
-  const audioRef = useRef(null);
-
-  // usestate
-  const [musicInfo, setMusicInfo] = useState({
-    currentTime: null,
-    duration: null,
-  });
-
-  // function
+const Player = ({
+  musics,
+  currentMusic,
+  isPlaying,
+  setIsPlaying,
+  audioRef,
+  musicInfo,
+  setMusicInfo,
+}) => {
+  // function to know is music playying or not
   const handlerPlayMusic = () => {
     if (isPlaying) {
-      // console.log("not playing");
       audioRef.current.pause();
       setIsPlaying(!isPlaying);
     } else {
       audioRef.current.play();
       setIsPlaying(!isPlaying);
     }
-  };
-
-  const handlerTimeUpdate = (e) => {
-    const current = e.target.currentTime;
-    const duration = e.target.duration;
-    console.log(e.target.duration);
-    setMusicInfo({ ...musicInfo, currentTime: current, duration: duration });
   };
 
   // function for get minute and second
@@ -59,7 +46,7 @@ const Player = ({ currentMusic, isPlaying, setIsPlaying }) => {
         <input
           value={musicInfo.currentTime}
           type="range"
-          max={musicInfo.duration}
+          max={musicInfo.duration || 0}
           min={0}
           onChange={handlerDragInputAudio}
         />
@@ -73,12 +60,6 @@ const Player = ({ currentMusic, isPlaying, setIsPlaying }) => {
           icon={isPlaying ? faPause : faPlay}
         />
         <FontAwesomeIcon className="forward" icon={faAngleRight} />
-        <audio
-          onLoadedMetadata={handlerTimeUpdate}
-          onTimeUpdate={handlerTimeUpdate}
-          ref={audioRef}
-          src={currentMusic.audio}
-        ></audio>
       </div>
     </div>
   );
