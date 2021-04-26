@@ -49,6 +49,7 @@ function App() {
         musics={musics}
         setMusics={setMusics}
         currentMusic={currentMusic}
+        setCurrentMusic={setCurrentMusic}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         audioRef={audioRef}

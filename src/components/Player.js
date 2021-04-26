@@ -11,6 +11,7 @@ const Player = ({
   musics,
   setMusics,
   currentMusic,
+  setCurrentMusic,
   isPlaying,
   setIsPlaying,
   audioRef,
@@ -40,20 +41,29 @@ const Player = ({
     setMusicInfo({ ...musicInfo, currentTime: e.target.value });
   };
 
-  // const newMusics = musics.map((music) => {
-  //   if (music.id === currentMusic.id) {
-  //     return {
-  //       ...music,
-  //       active: true,
-  //     };
-  //   } else {
-  //     return {
-  //       ...music,
-  //       active: false,
-  //     };
-  //   }
-  // });
-  // setMusics(newMusics);
+  const handlerSkipMusic = (direction) => {
+    // first know were we are now
+    let currentIndexMusic = musics.findIndex(
+      (music) => music.id === currentMusic.id
+    );
+
+    if (direction === "forward") {
+      // pakai modulus disini karena kita ingin kembali ke index 0
+      // ketika kita sudah sampai pada music index terakhir
+      setCurrentMusic(musics[(currentIndexMusic + 1) % musics.length]);
+      // console.log(`next music index : ${currentIndexMusic + 1}`);
+      // console.log(`musics length : ${musics.length}`);
+    }
+    if (direction === "back") {
+      // kondisi ini dibuat ketika dari music index 0 mau ke index terakhir music
+      // kita tetapkan bahwa jumlah music -1 agar indexnya berubah ke index music terakhir
+      if ((currentIndexMusic - 1) % musics.length === -1) {
+        setCurrentMusic(musics[musics.length - 1]);
+        return;
+      }
+      setCurrentMusic(musics[(currentIndexMusic - 1) % musics.length]);
+    }
+  };
 
   return (
     <div className="player">
@@ -69,13 +79,21 @@ const Player = ({
         <p>{getTime(musicInfo.duration)}</p>
       </div>
       <div className="control-player">
-        <FontAwesomeIcon className="back" icon={faAngleLeft} />
+        <FontAwesomeIcon
+          onClick={() => handlerSkipMusic("back")}
+          className="back"
+          icon={faAngleLeft}
+        />
         <FontAwesomeIcon
           onClick={handlerPlayMusic}
           className="play"
           icon={isPlaying ? faPause : faPlay}
         />
-        <FontAwesomeIcon className="forward" icon={faAngleRight} />
+        <FontAwesomeIcon
+          onClick={() => handlerSkipMusic("forward")}
+          className="forward"
+          icon={faAngleRight}
+        />
       </div>
     </div>
   );
