@@ -9,6 +9,7 @@ import {
 
 const Player = ({
   musics,
+  setMusics,
   currentMusic,
   isPlaying,
   setIsPlaying,
@@ -38,6 +39,21 @@ const Player = ({
     audioRef.current.currentTime = e.target.value;
     setMusicInfo({ ...musicInfo, currentTime: e.target.value });
   };
+
+  // const newMusics = musics.map((music) => {
+  //   if (music.id === currentMusic.id) {
+  //     return {
+  //       ...music,
+  //       active: true,
+  //     };
+  //   } else {
+  //     return {
+  //       ...music,
+  //       active: false,
+  //     };
+  //   }
+  // });
+  // setMusics(newMusics);
 
   return (
     <div className="player">

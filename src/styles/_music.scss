@@ -6,6 +6,11 @@
   img {
     width: 30%;
   }
+
+  // &:hover it's mean music:hover{}
+  &:hover {
+    background: rgb(67, 189, 175);
+  }
 }
 
 .desc-music {
@@ -23,8 +28,8 @@
   }
 }
 
-.selected:hover {
-  background-color: rgb(179, 38, 38);
+.selected {
+  background-color: rgb(58, 153, 142);
   h4:first-child {
     font-weight: bold;
     font-size: 1.1rem;

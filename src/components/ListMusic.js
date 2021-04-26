@@ -13,9 +13,11 @@ const ListMusic = ({
       <h3>List Music</h3>
       {musics.map((msc) => (
         <Music
+          id={msc.id}
+          key={msc.id}
+          msc={msc}
           musics={musics}
           setMusics={setMusics}
-          msc={msc}
           setCurrentMusic={setCurrentMusic}
           audioRef={audioRef}
           isPlaying={isPlaying}

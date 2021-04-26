@@ -18,8 +18,8 @@ function App() {
   const [currentMusic, setCurrentMusic] = useState(musics[0]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [musicInfo, setMusicInfo] = useState({
-    currentTime: null,
-    duration: null,
+    currentTime: 0,
+    duration: 0,
   });
 
   // useRef pada react sama halnya dengan document.querySelector pada javascript biasa
@@ -47,6 +47,7 @@ function App() {
       <MusicIsRunning currentMusic={currentMusic} />
       <Player
         musics={musics}
+        setMusics={setMusics}
         currentMusic={currentMusic}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}

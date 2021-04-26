@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   min-height: 20vh;
 }
 
 .duration-player {
   margin-top: 20px;
   display: flex;
-  justify-content: space-around;
   width: 50%;
   input {
     width: 100%;
@@ -17,14 +16,16 @@
   }
   p {
     padding: 1rem;
+    min-width: 10vh;
   }
 }
 
 .control-player {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 25%;
+  padding: 1rem;
   font-size: 2rem;
   min-height: 8vh;
   svg:hover {
