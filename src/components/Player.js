@@ -66,7 +66,7 @@ const Player = ({
     setMusicInfo({ ...musicInfo, currentTime: e.target.value });
   };
 
-  const handlerSkipMusic = (direction) => {
+  const handlerSkipMusic = async (direction) => {
     // first know were we are now
     let currentIndexMusic = musics.findIndex(
       (music) => music.id === currentMusic.id
@@ -75,7 +75,7 @@ const Player = ({
     if (direction === "forward") {
       // pakai modulus disini karena kita ingin kembali ke index 0
       // ketika kita sudah sampai pada music index terakhir
-      setCurrentMusic(musics[(currentIndexMusic + 1) % musics.length]);
+      await setCurrentMusic(musics[(currentIndexMusic + 1) % musics.length]);
       // console.log(`next music index : ${currentIndexMusic + 1}`);
       // console.log(`musics length : ${musics.length}`);
     }
@@ -83,10 +83,13 @@ const Player = ({
       // kondisi ini dibuat ketika dari music index 0 mau ke index terakhir music
       // kita tetapkan bahwa jumlah music -1 agar indexnya berubah ke index music terakhir
       if ((currentIndexMusic - 1) % musics.length === -1) {
-        setCurrentMusic(musics[musics.length - 1]);
+        await setCurrentMusic(musics[musics.length - 1]);
         return;
       }
-      setCurrentMusic(musics[(currentIndexMusic - 1) % musics.length]);
+      await setCurrentMusic(musics[(currentIndexMusic - 1) % musics.length]);
+    }
+    if (isPlaying) {
+      audioRef.current.play();
     }
   };
 
@@ -101,7 +104,7 @@ const Player = ({
           min={0}
           onChange={handlerDragInputAudio}
         />
-        <p>{getTime(musicInfo.duration)}</p>
+        <p>{musicInfo.duration ? getTime(musicInfo.duration) : "0:00"}</p>
       </div>
       <div className="control-player">
         <FontAwesomeIcon

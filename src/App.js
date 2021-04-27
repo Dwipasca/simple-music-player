@@ -34,6 +34,17 @@ function App() {
     setMusicInfo({ ...musicInfo, currentTime: current, duration: duration });
   };
 
+  // function for the music end
+  const handlerMusicEnd = async () => {
+    let currentIndexMusic = musics.findIndex(
+      (music) => music.id === currentMusic.id
+    );
+    await setCurrentMusic(musics[(currentIndexMusic + 1) % musics.length]);
+    if (isPlaying) {
+      audioRef.current.play();
+    }
+  };
+
   return (
     <div className="app">
       <h1>Simple Player Music</h1>
@@ -61,6 +72,7 @@ function App() {
         onTimeUpdate={handlerTimeUpdate}
         ref={audioRef}
         src={currentMusic.audio}
+        onEnded={handlerMusicEnd}
       ></audio>
     </div>
   );

@@ -7,13 +7,13 @@ const Music = ({
   audioRef,
   isPlaying,
 }) => {
-  const handlerMusicSelect = () => {
+  const handlerMusicSelect = async () => {
     const selectedMusic = musics.filter((state) => state.id === id);
     // console.log(selectedMusic);
     // why we have to spesific selectedMusic[0] ? because we use filter
     // filter will create array and then put the value in there
     // that's why we have to be spesific
-    setCurrentMusic({ ...selectedMusic[0] });
+    await setCurrentMusic({ ...selectedMusic[0] });
 
     // add active state
     const newMusics = musics.map((music) => {
@@ -38,12 +38,7 @@ const Music = ({
 
     // check if the music playying
     if (isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.then((audio) => {
-          audioRef.current.play();
-        });
-      }
+      audioRef.current.play();
     }
   };
 
