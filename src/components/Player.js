@@ -7,8 +7,6 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect } from "react";
-
 const Player = ({
   musics,
   setMusics,
@@ -20,14 +18,13 @@ const Player = ({
   musicInfo,
   setMusicInfo,
 }) => {
-  // useEffect
-  useEffect(() => {
+  const handlerListMusicSelected = (backOrForward) => {
     const newMusics = musics.map((music) => {
       // music.id here is representative from the state and the id here
       // is the music we selected now
       // so when the state id and music id same. then the active will be true
       // if not then will be false
-      if (music.id === currentMusic.id) {
+      if (music.id === backOrForward.id) {
         return {
           ...music,
           active: true,
@@ -41,7 +38,7 @@ const Player = ({
     });
     // renew the music list in state
     setMusics(newMusics);
-  }, [currentMusic]);
+  };
 
   // function to know is music playying or not
   const handlerPlayMusic = () => {
@@ -78,15 +75,18 @@ const Player = ({
       await setCurrentMusic(musics[(currentIndexMusic + 1) % musics.length]);
       // console.log(`next music index : ${currentIndexMusic + 1}`);
       // console.log(`musics length : ${musics.length}`);
+      handlerListMusicSelected(musics[(currentIndexMusic + 1) % musics.length]);
     }
     if (direction === "back") {
       // kondisi ini dibuat ketika dari music index 0 mau ke index terakhir music
       // kita tetapkan bahwa jumlah music -1 agar indexnya berubah ke index music terakhir
       if ((currentIndexMusic - 1) % musics.length === -1) {
         await setCurrentMusic(musics[musics.length - 1]);
+        handlerListMusicSelected(musics[musics.length - 1]);
         return;
       }
       await setCurrentMusic(musics[(currentIndexMusic - 1) % musics.length]);
+      handlerListMusicSelected(musics[(currentIndexMusic - 1) % musics.length]);
     }
     if (isPlaying) {
       audioRef.current.play();

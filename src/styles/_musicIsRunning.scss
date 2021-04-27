@@ -1,4 +1,5 @@
 .music-is-running {
+  margin-left: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +7,7 @@
   min-height: 60vh;
   img {
     margin-top: 3rem;
-    width: 15%;
+    width: 25%;
     border-radius: 100%;
     box-shadow: 2px 2px 50px rgb(31, 29, 29);
   }

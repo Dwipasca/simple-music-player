@@ -1,4 +1,5 @@
 .player {
+  margin-left: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +22,6 @@
 }
 
 .control-player {
-  // background-color: aqua;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,6 +31,5 @@
   min-height: 8vh;
   svg:hover {
     cursor: pointer;
-    // font-size: 2.1rem;
   }
 }
