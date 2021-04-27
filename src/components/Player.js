@@ -7,6 +7,8 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { useEffect } from "react";
+
 const Player = ({
   musics,
   setMusics,
@@ -18,6 +20,29 @@ const Player = ({
   musicInfo,
   setMusicInfo,
 }) => {
+  // useEffect
+  useEffect(() => {
+    const newMusics = musics.map((music) => {
+      // music.id here is representative from the state and the id here
+      // is the music we selected now
+      // so when the state id and music id same. then the active will be true
+      // if not then will be false
+      if (music.id === currentMusic.id) {
+        return {
+          ...music,
+          active: true,
+        };
+      } else {
+        return {
+          ...music,
+          active: false,
+        };
+      }
+    });
+    // renew the music list in state
+    setMusics(newMusics);
+  }, [currentMusic]);
+
   // function to know is music playying or not
   const handlerPlayMusic = () => {
     if (isPlaying) {
