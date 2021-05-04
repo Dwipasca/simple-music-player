@@ -2,9 +2,9 @@
 import { useState, useRef } from "react";
 
 // import components
-import ListMusic from "./components/ListMusic";
-import MusicIsRunning from "./components/MusicIsRunning";
-import Player from "./components/Player";
+import ListMusic from "./components/ListMusic/ListMusic";
+import MusicIsRunning from "./components/MusicIsRunning/MusicIsRunning";
+import Player from "./components/Player/Player";
 
 // import styles
 import "./styles/app.scss";

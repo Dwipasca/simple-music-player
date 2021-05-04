@@ -1,5 +1,5 @@
 // import components
-import Music from "./Music";
+import Music from "../Music/Music";
 
 const ListMusic = ({
   musics,

@@ -96,15 +96,18 @@ const Player = ({
   return (
     <div className="player">
       <div className="duration-player">
-        <p>{getTime(musicInfo.currentTime)}</p>
+        <p data-testid="music-currentTime">{getTime(musicInfo.currentTime)}</p>
         <input
+          data-testid="music-range"
           value={musicInfo.currentTime}
           type="range"
           max={musicInfo.duration || 0}
           min={0}
           onChange={handlerDragInputAudio}
         />
-        <p>{musicInfo.duration ? getTime(musicInfo.duration) : "0:00"}</p>
+        <p data-testid="music-duration">
+          {musicInfo.duration ? getTime(musicInfo.duration) : "0:00"}
+        </p>
       </div>
       <div className="control-player">
         <FontAwesomeIcon
@@ -118,6 +121,7 @@ const Player = ({
           icon={isPlaying ? faPause : faPlay}
         />
         <FontAwesomeIcon
+          data-testid="play-btn"
           onClick={() => handlerSkipMusic("forward")}
           className="forward"
           icon={faAngleRight}
