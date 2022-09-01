@@ -1,24 +1,22 @@
-# Simple music player app with SASS and React testing library + Jest
+## Simple music player app
 
-## Available Scripts
+<img width="1268" alt="Screen Shot 2022-09-01 at 12 04 38" src="https://user-images.githubusercontent.com/19584291/187829341-a454f75e-f77b-458d-9e64-1e10e66d7af5.png">
 
-In the project directory, you can run:
+## How to use
+- clone this repo
+```
+    git clone git@github.com:Dwipasca/simple-music-player.git
+```
+- install depp
 
-### `yarn / yarn i / yarn install`
-
-For the first time you clone this project.\
-and then install all package project with this command.\
-after this you can run "yarn start"
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+    yarn or yarn install
+```
+- run project
+```
+    yarn start
+```
+- run test
+```
+    yarn test
+```
